@@ -1,0 +1,52 @@
+---
+title: "Data Report"
+author: "Andrew Michaels"
+date: "5/12/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("knitr")
+source("analysis.R")
+```
+
+## Summary Information
+
+In 2018, there were `r shootings_count` mass shootings in the US (four or more shot and/or killed in a single event, not including the shooter). Within these `r shootings_count`, the total number of lives lost counted `r lives_lost` unfortunate individuals. The most impacted city was `r most_impacted_city` based on the total number of shootings (`r most_impacted_city_count`) occured in 2018. The two states most impacted by shootings in 2018 were `r most_impacted_state` with totals of `r most_impacted_state_count` shootings each. The month with the most shootings was `r most_impacted_month` with `r most_impacted_month_count` total shootings.
+
+
+Link to the original source: [Click Here](http://www.shootingtracker.com/)
+
+
+## Summary Table
+
+`r aggregate_info`
+
+- In 2018, the summer months (June, July, and August) appeared to have the most shootings. 
+- The total number of shootings in a month did not necessarily relate to the highest number of deaths as November had the greatest number of killed individuals in shootings.
+- The total number of shootings has a strong correlation to number of injuries as the summer months appear to hold the highest numbers of individuals injured.
+
+## Particular Incident
+In `r incident_city`, `r incident_state` a deadly shooting occured on `r incident_date` at the local high school of the address:
+`r incident_address`. The shooter was identified as 19-year-old, Nikolas Cruz, a former student. The scene saw `r incident_killed` killed and `r incident_injured` injured in the shooting. Following the event, the district closed all school activities for the rest of the week. `r incident_city` ranked 7th with `r incident_killed` dead in terms of worst shootings in modern U.S. history. 
+
+More on the story: [Click Here](https://cbs12.com/news/local/shooting-at-marjory-stoneman-douglas-high-school-in-parkland)
+
+## Interactive Map
+
+The interactive map below shows the location, address, date, and total individuals injured or killed upon the various shootings in 2018. The size of each marker is adjusted based on the total number killed within each shooting.
+
+`r interactive_map`
+
+- Based on the visualization, we can see the deadliest shooting in 2018 occrued in Parkland, Florida resulting in 17 killed and injured.
+- It also appears that in 2018, shootings more commonly occured in eastern and southern America as compared to the west.
+
+## Shootings Visualization
+
+`r plotly_graph`
+
+
+- The encodings of the chart help illustrate which months were the most extreme in terms of deaths in shootings specifically for each of the top 3 states with the most shootings. The graph and its encodings also help visualize how much of an impact just these 3 states had on the death count almost every month in 2018 due to shootings. 
+- Based on only the top 3 states in terms of number of shootings, June was the month with the highest number of deaths.
+- The top 3 states in terms of shootings did not contribute to any of the deaths in January or December.
